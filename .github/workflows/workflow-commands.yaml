@@ -1,4 +1,4 @@
-choname: Workflow Commands
+name: Workflow Commands
 on: [push]
 jobs:
   testung-wf-commands:
