@@ -1,4 +1,4 @@
-name: Workflow Commands
+choname: Workflow Commands
 on: [push]
 jobs:
   testung-wf-commands:
@@ -20,7 +20,7 @@ jobs:
          echo "Inside group"
          echo "::endgroup::"
       - name: Masking a value
-        run: "::add-mask::Secret string"
+        run: echo "::add-mask::Secret string"
       - name: Echo a secret
-        run: "::add-mask::Secret string"
+        run: echo "Secret string"
        
