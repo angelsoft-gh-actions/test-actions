@@ -10,9 +10,8 @@ jobs:
         run: |
           node -v
           npm -v
-     parallel-job-macOS:
-       runs-on: macos-latest
-parallel-job-macOS:
+
+  parallel-job-macOS:
     runs-on: macos-latest
     steps:
       - name: View SW version
