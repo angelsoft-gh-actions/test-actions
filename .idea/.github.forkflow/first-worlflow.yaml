@@ -1,0 +1,12 @@
+name: First Workflow
+on: [push]
+jobs:
+  run-shell-commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure workflowtest
+        run: echo "Hello World"
+      - name: Multiple Command
+        run: |
+          node -v
+          npm -v
