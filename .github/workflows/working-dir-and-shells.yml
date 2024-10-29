@@ -18,7 +18,7 @@ jobs:
       - name: Change Working Dir
         working-directory: /home/runner
         run: pwd
-   display-wd-info-windows:
+  display-wd-info-windows:
       runs-on: ubuntu-latest
       default:
         run:
