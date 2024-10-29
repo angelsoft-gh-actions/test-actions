@@ -1,5 +1,5 @@
 #Example here: https://github.com/actions/hello-world-javascript-action
-name: Example Workflow
+name: CheckoutAction2
 
 on: 
   workflow_dispatch:
