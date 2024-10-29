@@ -1,6 +1,6 @@
 name: Working Dirs and Shells
 on: [push]
-default:
+defaults:
   run:
     shell: bash
     #working-directory: 
@@ -20,7 +20,7 @@ jobs:
         run: pwd
   display-wd-info-windows:
       runs-on: ubuntu-latest
-      default:
+      defaults:
         run:
           shell: pwsh
       steps:
