@@ -3,7 +3,7 @@ on: [push]
 default:
   run:
     shell: bash
-    working-directory: 
+    #working-directory: 
 jobs:
   display-wd-info:
     runs-on: ubuntu-latest
