@@ -1,0 +1,46 @@
+name: Checkout
+on:
+ workflow_dispatch:
+   inputs:
+     string:
+       description: A string input
+       type: string
+       required: true
+       default: "Default value"
+     number:
+       description: A number input
+       type: number
+       #required: true
+       default: 4
+     option:
+      description: An option input
+      type: choice
+      required: true
+      default: "Option 3"
+      options:
+       - Option 1
+       - Option 2
+       - Option 3
+     boolean:
+      description: A boolean option
+      type: false
+      required: false
+     environment:
+      description: "Environment"
+      type: environment
+      required: true
+jobs:
+  log-info:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $GITHUB_REF
+      - run: |
+          echo "String: ${{inputs.string}}"
+          echo "String: ${{inputs.number}}"
+          echo "String: ${{inputs.option}}"
+          echo "String: ${{inputs.boolean}}"
+          echo "String: ${{inputs.environment}}"
+
+
+
+          
