@@ -1,4 +1,4 @@
-name: Checkout
+name: Manually Triggered
 on:
  workflow_dispatch:
    inputs:
