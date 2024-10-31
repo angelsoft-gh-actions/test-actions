@@ -11,6 +11,6 @@ jobs:
         with:
           stale-issue-message: This is some messages.
           days-before-stale: 1
-          days-before-close: 1
+          days-before-close: 5
 
 
