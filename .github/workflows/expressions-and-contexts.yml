@@ -1,0 +1,21 @@
+name: Espessions & Contexts
+on: [push, pull_request, issues, workflow_dispatch]
+run-name: "Experssions & Contexts by @${{github.actor}}, event: ${{github.event-name}}"
+jobs:
+  using-expressions-and-contexts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Expressions
+        run: |
+          echo ${{ 1 }}
+          echo ${{ null }}
+          echo ${{ true }}
+          echo ${{ 1>2 }}
+          echo ${{ 'string' == 'String' }}
+      - name: Dump contexts
+        run: |
+          echo '${{ toJson(github) }}'
+          echo '${{ toJson(job) }}'
+          echo '${{ toJson(secrets) }}'
+          echo '${{ toJson(runner) }}'
+          
