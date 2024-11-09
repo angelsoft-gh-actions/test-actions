@@ -25,6 +25,8 @@ jobs:
       # max-parallel: 3 #Only max 3 job will be run at the same time
     runs-on: ${{ matrix.os }}
     steps:
+    - if: matrix.experimental == true
+      run: exit 1
     - run: node -v
     - run: echo '${{ toJson(matrix) }}'
     - uses: actions/setup-node@v3
