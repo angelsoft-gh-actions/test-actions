@@ -7,7 +7,21 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         node-version: [14, 15, 16]
-      fail-fast: false #If any job fails the other are going to continue normally
+        include:
+          - os: ubuntu-latest
+            is-ubuntu: true
+          - os: macos-latest
+            node-version: 15
+          - experimental: false
+          - os: ubuntu-latest
+            node-version: 16
+            experimental: true
+          - os: ubuntu-latest
+            node-version: 17
+        exclude:
+         - os: ubuntu-latest
+           node-version: 14
+      fail-fast: false #If set to 'true' the other jobs in progress or pending will be cancelled
       # max-parallel: 3 #Only max 3 job will be run at the same time
     runs-on: ${{ matrix.os }}
     steps:
