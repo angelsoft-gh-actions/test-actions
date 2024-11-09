@@ -21,7 +21,7 @@ jobs:
         exclude:
          - os: ubuntu-latest
            node-version: 14
-      fail-fast: false #If set to 'true' the other jobs in progress or pending will be cancelled
+      fail-fast: true #If set to 'true' the other jobs in progress or pending will be cancelled
       # max-parallel: 3 #Only max 3 job will be run at the same time
     runs-on: ${{ matrix.os }}
     steps:
