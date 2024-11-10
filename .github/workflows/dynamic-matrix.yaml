@@ -13,7 +13,8 @@ on:
 jobs:
   prepare-matrix:
     runs-on: ubuntu-latest
-    matrix-arrays: ${{ steps.matrix-arrays.outputs.results }}
+    outputs:
+      matrix-arrays: ${{ steps.matrix-arrays.outputs.results }}
     steps:
       - uses: actions/github-script@v7.0.1
         id: matrix-arrays
