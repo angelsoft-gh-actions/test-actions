@@ -2,7 +2,7 @@ name: Concurrency 1
 on:
   workflow_dispatch:
     inputs:
-      environmet:
+      environment:
         description: Environment
         type: environment
         required: true
