@@ -7,7 +7,7 @@ on:
         type: environment
         required: true
 concurrency:
-  group:   concurrency-1
+  group:   ${{ github.event.input.environment }}
   cancel-in-progress: true
 jobs:
   sleep:
