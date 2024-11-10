@@ -13,11 +13,12 @@ on:
 jobs:
   prepare-matrix:
     runs-on: ubuntu-latest
+    matrix-arrays: ${{ steps.matrix-arrays.outputs.results }}
     steps:
       - uses: actions/github-script@v7.0.1
         id: matrix-arrays
         with:
-          script: "return {os: context.payload.inputs['os'].split(',') , 'node-version': context.payload.inputs['node-version'].split(',')}"
+          script: "return {os: context.payload.inputs['os'] , 'node-version': context.payload.inputs['node-version']}"
           result-encoding: json
       - run: '${{ steps.matrix-arrays.outputs.result }}'
       - run: echo "step-output=value" >> $GITHUB_OUTPUT
@@ -27,18 +28,17 @@ jobs:
       - run: |
           echo '${{ steps.step-1.outputs.step-output }}'
           echo '${{ steps.step-2.outputs.step-output }}'
+
   node-matrix:
+    needs: prepare-matrix
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        node-version: [14, 15, 16]
-
+        os: ${{ fromJson(needs.prepare-matrix.outputs.matrix-arrays).os }}
+        node-version: ${{ fromJson(needs.prepare-matrix.outputs.matrix-arrays).node-version }}
     runs-on: ${{ matrix.os }}
     steps:
-
     - run: node -v
-
     - uses: actions/setup-node@v3
       with:
-        node-versions: ${{ matrix.node-version }}
+        node-versions: ${{ matrix.node-version.outputs.matrix-arrays }}
     - run: node -v
